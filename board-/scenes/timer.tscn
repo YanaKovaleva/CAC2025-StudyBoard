@@ -1,4 +1,8 @@
-[gd_scene format=3 uid="uid://cqpyuppb83vie"]
+[gd_scene load_steps=4 format=3 uid="uid://cqpyuppb83vie"]
+
+[ext_resource type="Script" uid="uid://crqo1v5fbtp17" path="res://scenes/timer.gd" id="1_g5y8c"]
+[ext_resource type="Script" uid="uid://b0uos5ouw6hib" path="res://scenes/timer_label.gd" id="2_bi5oq"]
+[ext_resource type="Script" uid="uid://ydjkjdh2jgbw" path="res://scenes/enter_time.gd" id="3_uktcg"]
 
 [node name="timer" type="Node"]
 
@@ -9,9 +13,30 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Timer" type="Timer" parent="Node2D"]
+script = ExtResource("1_g5y8c")
 
-[node name="Label" type="Label" parent="Node2D"]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="timerLabel" type="Label" parent="Node2D"]
+offset_left = 530.0
+offset_top = 286.0
+offset_right = 570.0
+offset_bottom = 309.0
+script = ExtResource("2_bi5oq")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+[node name="cat" type="AnimatedSprite2D" parent="Node2D"]
+
+[node name="enterTime" type="LineEdit" parent="Node2D"]
+offset_left = 519.0
+offset_top = 282.0
+offset_right = 587.563
+offset_bottom = 313.0
+script = ExtResource("3_uktcg")
+
+[node name="goodJob" type="Label" parent="Node2D"]
+offset_left = 389.0
+offset_top = 157.0
+offset_right = 718.0
+offset_bottom = 227.0
+
+[node name="confetti" type="AnimatedSprite2D" parent="Node2D"]
+
+[connection signal="timeout" from="Node2D/Timer" to="Node2D/Timer" method="_on_timeout"]

@@ -12,7 +12,15 @@ offset_bottom = 40.0
 
 [node name="square" type="Sprite2D" parent="Node2D"]
 
+[node name="TextEdit" type="TextEdit" parent="Node2D/square"]
+offset_right = 8.0
+offset_bottom = 8.0
+
 [node name="circle" type="Sprite2D" parent="Node2D"]
+
+[node name="TextEdit" type="TextEdit" parent="Node2D/circle"]
+offset_right = 8.0
+offset_bottom = 8.0
 
 [node name="star" type="Sprite2D" parent="Node2D"]
 

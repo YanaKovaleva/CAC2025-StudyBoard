@@ -1,18 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://bx2frsahemycq"]
+[gd_scene load_steps=4 format=3 uid="uid://bx2frsahemycq"]
 
-[ext_resource type="Script" uid="uid://ba12d82mwfqxk" path="res://scripts/board.gd" id="1_0xm2m"]
-[ext_resource type="Script" uid="uid://ornblj1046ak" path="res://scripts/table.gd" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://ba12d82mwfqxk" path="res://scripts/board.gd" id="1_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://3hvaj6n5yp22" path="res://images/startBg.jpeg" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://ornblj1046ak" path="res://scripts/table.gd" id="2_sugp2"]
 
 [node name="main" type="Node"]
 
 [node name="Node2D" type="Node2D" parent="."]
 
+[node name="ColorRect" type="ColorRect" parent="Node2D"]
+offset_left = 988.0
+offset_top = -195.0
+offset_right = 1028.0
+offset_bottom = -155.0
+scale = Vector2(10.1312, 21.9354)
+color = Color(0.870588, 0.768627, 0.670588, 1)
+
 [node name="TextureRect" type="TextureRect" parent="Node2D"]
 offset_right = 1162.0
 offset_bottom = 664.0
+scale = Vector2(0.925271, 0.78776)
+texture = ExtResource("1_sugp2")
 
 [node name="board" type="Sprite2D" parent="Node2D"]
-script = ExtResource("1_0xm2m")
+script = ExtResource("1_0wfyh")
 
 [node name="table" type="Sprite2D" parent="Node2D"]
-script = ExtResource("2_h2yge")
+script = ExtResource("2_sugp2")
