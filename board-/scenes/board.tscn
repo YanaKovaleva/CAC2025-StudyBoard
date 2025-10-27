@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bq3cvdb311dwe"]
+
+[node name="board" type="Node"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="board" type="TextureRect" parent="Node2D"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="bag" type="Sprite2D" parent="Node2D"]
+
+[node name="square" type="Sprite2D" parent="Node2D"]
+
+[node name="circle" type="Sprite2D" parent="Node2D"]
+
+[node name="star" type="Sprite2D" parent="Node2D"]
+
+[node name="excl" type="Sprite2D" parent="Node2D"]
+
+[node name="check" type="Sprite2D" parent="Node2D"]

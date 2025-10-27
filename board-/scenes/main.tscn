@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx2frsahemycq"]
+
+[ext_resource type="Script" uid="uid://ba12d82mwfqxk" path="res://scripts/board.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://ornblj1046ak" path="res://scripts/table.gd" id="2_h2yge"]
+
+[node name="main" type="Node"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Node2D"]
+offset_right = 1162.0
+offset_bottom = 664.0
+
+[node name="board" type="Sprite2D" parent="Node2D"]
+script = ExtResource("1_0xm2m")
+
+[node name="table" type="Sprite2D" parent="Node2D"]
+script = ExtResource("2_h2yge")

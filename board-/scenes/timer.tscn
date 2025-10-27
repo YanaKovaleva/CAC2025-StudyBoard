@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cqpyuppb83vie"]
+
+[node name="timer" type="Node"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Node2D"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Timer" type="Timer" parent="Node2D"]
+
+[node name="Label" type="Label" parent="Node2D"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
