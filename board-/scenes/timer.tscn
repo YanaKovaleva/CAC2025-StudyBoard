@@ -1,34 +1,59 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqpyuppb83vie"]
+[gd_scene load_steps=6 format=3 uid="uid://cqpyuppb83vie"]
 
+[ext_resource type="Texture2D" uid="uid://dhc8a7t27lx2w" path="res://images/timer1.jpeg" id="1_bi5oq"]
 [ext_resource type="Script" uid="uid://crqo1v5fbtp17" path="res://scenes/timer.gd" id="1_g5y8c"]
 [ext_resource type="Script" uid="uid://b0uos5ouw6hib" path="res://scenes/timer_label.gd" id="2_bi5oq"]
 [ext_resource type="Script" uid="uid://ydjkjdh2jgbw" path="res://scenes/enter_time.gd" id="3_uktcg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uktcg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bi5oq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="timer" type="Node"]
 
 [node name="Node2D" type="Node2D" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="Node2D"]
+[node name="ColorRect" type="ColorRect" parent="Node2D"]
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(34.3781, 18.6801)
+color = Color(0.870588, 0.768627, 0.670588, 1)
 
-[node name="Timer" type="Timer" parent="Node2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(555, 321)
+scale = Vector2(0.45, 0.45)
+sprite_frames = SubResource("SpriteFrames_uktcg")
+
+[node name="timer1" type="Timer" parent="Node2D"]
+wait_time = 20.444
+one_shot = true
+autostart = true
+ignore_time_scale = true
 script = ExtResource("1_g5y8c")
 
 [node name="timerLabel" type="Label" parent="Node2D"]
-offset_left = 530.0
-offset_top = 286.0
-offset_right = 570.0
-offset_bottom = 309.0
+offset_left = 457.0
+offset_top = 67.0
+offset_right = 497.0
+offset_bottom = 109.0
+scale = Vector2(3.03125, 2.72259)
+theme_override_colors/font_color = Color(0.636379, 0.421308, 0.450558, 1)
+theme_override_font_sizes/font_size = 30
 script = ExtResource("2_bi5oq")
 
-[node name="cat" type="AnimatedSprite2D" parent="Node2D"]
-
 [node name="enterTime" type="LineEdit" parent="Node2D"]
-offset_left = 519.0
-offset_top = 282.0
-offset_right = 587.563
-offset_bottom = 313.0
+offset_left = 447.0
+offset_top = 154.0
+offset_right = 515.563
+offset_bottom = 185.0
+scale = Vector2(2.66549, 2.05155)
 script = ExtResource("3_uktcg")
 
 [node name="goodJob" type="Label" parent="Node2D"]
@@ -39,4 +64,5 @@ offset_bottom = 227.0
 
 [node name="confetti" type="AnimatedSprite2D" parent="Node2D"]
 
-[connection signal="timeout" from="Node2D/Timer" to="Node2D/Timer" method="_on_timeout"]
+[connection signal="timeout" from="Node2D/timer1" to="Node2D/timer1" method="_on_timeout"]
+[connection signal="text_changed" from="Node2D/enterTime" to="Node2D/timer1" method="_on_enter_time_text_changed"]
