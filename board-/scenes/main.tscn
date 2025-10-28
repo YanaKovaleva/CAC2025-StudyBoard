@@ -30,6 +30,7 @@ offset_top = 97.0
 offset_right = 479.0
 offset_bottom = 349.0
 icon = ExtResource("2_tbgi4")
+flat = true
 script = ExtResource("3_tbgi4")
 
 [node name="tableBtn" type="Button" parent="Node2D"]
@@ -38,6 +39,7 @@ offset_top = 86.0
 offset_right = 1113.0
 offset_bottom = 641.0
 icon = ExtResource("4_tefeu")
+flat = true
 script = ExtResource("5_tefeu")
 
 [connection signal="pressed" from="Node2D/boardBtn" to="Node2D/boardBtn" method="_on_pressed"]

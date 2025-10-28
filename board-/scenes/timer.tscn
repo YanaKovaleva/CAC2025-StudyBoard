@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cqpyuppb83vie"]
+[gd_scene load_steps=14 format=3 uid="uid://cqpyuppb83vie"]
 
 [ext_resource type="Texture2D" uid="uid://dhc8a7t27lx2w" path="res://images/timer1.jpeg" id="1_bi5oq"]
 [ext_resource type="Script" uid="uid://crqo1v5fbtp17" path="res://scenes/timer.gd" id="1_g5y8c"]
 [ext_resource type="Script" uid="uid://b0uos5ouw6hib" path="res://scenes/timer_label.gd" id="2_bi5oq"]
 [ext_resource type="Script" uid="uid://ydjkjdh2jgbw" path="res://scenes/enter_time.gd" id="3_uktcg"]
+[ext_resource type="Texture2D" uid="uid://c53priq1k4end" path="res://images/enterTextBg.png" id="4_0yba6"]
 [ext_resource type="Texture2D" uid="uid://hw5pc7birjj1" path="res://images/go.png" id="5_dtxrw"]
 [ext_resource type="Texture2D" uid="uid://2cpe67apb6rn" path="res://images/goPressed.png" id="6_sa7gq"]
 [ext_resource type="Script" uid="uid://dxs0ie6hch2jm" path="res://scripts/go_btn.gd" id="7_0yba6"]
@@ -21,6 +22,9 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0yba6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="timer" type="Node"]
 
@@ -44,22 +48,43 @@ autostart = true
 ignore_time_scale = true
 script = ExtResource("1_g5y8c")
 
-[node name="timerLabel" type="Label" parent="Node2D"]
-offset_left = 457.0
-offset_top = 67.0
-offset_right = 497.0
-offset_bottom = 109.0
+[node name="timerLabel" type="Label" parent="Node2D/timer1"]
+offset_left = 419.0
+offset_top = 70.0
+offset_right = 459.0
+offset_bottom = 112.0
 scale = Vector2(3.03125, 2.72259)
+size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.636379, 0.421308, 0.450558, 1)
 theme_override_font_sizes/font_size = 30
 script = ExtResource("2_bi5oq")
 
+[node name="EnterTextBg" type="Sprite2D" parent="Node2D"]
+position = Vector2(940, 202)
+scale = Vector2(0.554787, 0.461704)
+texture = ExtResource("4_0yba6")
+
 [node name="enterTime" type="LineEdit" parent="Node2D"]
-offset_left = 447.0
-offset_top = 154.0
-offset_right = 515.563
-offset_bottom = 185.0
-scale = Vector2(2.66549, 2.05155)
+offset_left = 809.0
+offset_top = 157.0
+offset_right = 904.0
+offset_bottom = 188.0
+scale = Vector2(3.02775, 2.34295)
+theme_override_colors/clear_button_color_pressed = Color(0.921569, 0.721569, 0.796078, 1)
+theme_override_colors/clear_button_color = Color(0.921569, 0.721569, 0.796078, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 0)
+theme_override_colors/caret_color = Color(0.854902, 0.568627, 0.67451, 1)
+theme_override_colors/font_placeholder_color = Color(0.901211, 0.552755, 0.682042, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/font_selected_color = Color(0.909804, 0.619608, 0.72549, 1)
+theme_override_colors/font_uneditable_color = Color(0.901961, 0.556863, 0.686275, 1)
+theme_override_colors/font_color = Color(0.909804, 0.611765, 0.721569, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/focus = SubResource("StyleBoxFlat_0yba6")
+placeholder_text = "Enter minutes:"
+expand_to_text_length = true
+clear_button_enabled = true
+flat = true
 script = ExtResource("3_uktcg")
 
 [node name="goodJob" type="Label" parent="Node2D"]
@@ -92,5 +117,8 @@ script = ExtResource("10_u5bqm")
 
 [connection signal="timeout" from="Node2D/timer1" to="Node2D/timer1" method="_on_timeout"]
 [connection signal="text_changed" from="Node2D/enterTime" to="Node2D/timer1" method="_on_enter_time_text_changed"]
+[connection signal="text_submitted" from="Node2D/enterTime" to="Node2D/timer1" method="_on_enter_time_text_submitted"]
+[connection signal="text_submitted" from="Node2D/enterTime" to="Node2D/timer1/timerLabel" method="_on_enter_time_text_submitted"]
+[connection signal="text_submitted" from="Node2D/enterTime" to="Node2D/enterTime" method="_on_text_submitted"]
 [connection signal="pressed" from="Node2D/goBtn" to="Node2D/timer1" method="_on_go_btn_pressed"]
 [connection signal="pressed" from="Node2D/stopBtn" to="Node2D/timer1" method="_on_stop_btn_pressed"]
