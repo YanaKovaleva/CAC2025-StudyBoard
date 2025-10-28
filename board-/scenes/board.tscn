@@ -1,29 +1,66 @@
-[gd_scene format=3 uid="uid://bq3cvdb311dwe"]
+[gd_scene load_steps=7 format=3 uid="uid://bq3cvdb311dwe"]
+
+[ext_resource type="Texture2D" uid="uid://wvnl8chm2myd" path="res://images/pencilcase.png" id="1_dun80"]
+[ext_resource type="Texture2D" uid="uid://dlgpkmwio6yhe" path="res://images/sticky.png" id="2_c3r7o"]
+[ext_resource type="Texture2D" uid="uid://bfvf7m6y7vjbp" path="res://images/pink.png" id="3_wmvsh"]
+[ext_resource type="Texture2D" uid="uid://cbs1snffbo0q8" path="res://images/star (2).png" id="4_n230i"]
+[ext_resource type="Texture2D" uid="uid://chwibkd8dry6e" path="res://images/exclamation.png" id="5_ar2e0"]
+[ext_resource type="Texture2D" uid="uid://7rke5xhgoxn3" path="res://images/check.png" id="6_pnb36"]
 
 [node name="board" type="Node"]
 
 [node name="Node2D" type="Node2D" parent="."]
 
-[node name="board" type="TextureRect" parent="Node2D"]
+[node name="boardBg" type="ColorRect" parent="Node2D"]
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(29.1704, 16.6052)
+color = Color(0.603922, 0.482353, 0.360784, 1)
+
+[node name="boardBg2" type="ColorRect" parent="Node2D"]
+offset_left = 53.0
+offset_top = 44.0
+offset_right = 93.0
+offset_bottom = 84.0
+scale = Vector2(26.203, 14.3292)
+color = Color(0.752941, 0.647059, 0.529412, 1)
 
 [node name="bag" type="Sprite2D" parent="Node2D"]
+position = Vector2(589.851, 566.721)
+scale = Vector2(1.24357, 0.869978)
+texture = ExtResource("1_dun80")
 
 [node name="square" type="Sprite2D" parent="Node2D"]
+position = Vector2(559.851, 578.721)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_c3r7o")
 
 [node name="TextEdit" type="TextEdit" parent="Node2D/square"]
 offset_right = 8.0
 offset_bottom = 8.0
+metadata/_edit_use_anchors_ = true
 
 [node name="circle" type="Sprite2D" parent="Node2D"]
+position = Vector2(783.851, 582.721)
+scale = Vector2(0.4, 0.442)
+texture = ExtResource("3_wmvsh")
 
 [node name="TextEdit" type="TextEdit" parent="Node2D/circle"]
 offset_right = 8.0
 offset_bottom = 8.0
+metadata/_edit_use_anchors_ = true
 
 [node name="star" type="Sprite2D" parent="Node2D"]
+position = Vector2(253.851, 583.721)
+scale = Vector2(0.2, 0.197)
+texture = ExtResource("4_n230i")
 
 [node name="excl" type="Sprite2D" parent="Node2D"]
+position = Vector2(434.851, 569.721)
+scale = Vector2(0.2, 0.283)
+texture = ExtResource("5_ar2e0")
 
 [node name="check" type="Sprite2D" parent="Node2D"]
+position = Vector2(343.851, 587.721)
+scale = Vector2(0.3, 0.309)
+texture = ExtResource("6_pnb36")
