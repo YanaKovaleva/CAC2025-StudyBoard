@@ -1,9 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqpyuppb83vie"]
+[gd_scene load_steps=12 format=3 uid="uid://cqpyuppb83vie"]
 
 [ext_resource type="Texture2D" uid="uid://dhc8a7t27lx2w" path="res://images/timer1.jpeg" id="1_bi5oq"]
 [ext_resource type="Script" uid="uid://crqo1v5fbtp17" path="res://scenes/timer.gd" id="1_g5y8c"]
 [ext_resource type="Script" uid="uid://b0uos5ouw6hib" path="res://scenes/timer_label.gd" id="2_bi5oq"]
 [ext_resource type="Script" uid="uid://ydjkjdh2jgbw" path="res://scenes/enter_time.gd" id="3_uktcg"]
+[ext_resource type="Texture2D" uid="uid://hw5pc7birjj1" path="res://images/go.png" id="5_dtxrw"]
+[ext_resource type="Texture2D" uid="uid://2cpe67apb6rn" path="res://images/goPressed.png" id="6_sa7gq"]
+[ext_resource type="Script" uid="uid://dxs0ie6hch2jm" path="res://scripts/go_btn.gd" id="7_0yba6"]
+[ext_resource type="Texture2D" uid="uid://ddg0vn7dpyj23" path="res://images/pause.png" id="7_03p6j"]
+[ext_resource type="Texture2D" uid="uid://b0ja5bx4sgm30" path="res://images/stopPressed.png" id="8_0yba6"]
+[ext_resource type="Script" uid="uid://t2ict2dtlfd1" path="res://scripts/stop_btn.gd" id="10_u5bqm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uktcg"]
 animations = [{
@@ -64,5 +70,27 @@ offset_bottom = 227.0
 
 [node name="confetti" type="AnimatedSprite2D" parent="Node2D"]
 
+[node name="goBtn" type="TextureButton" parent="Node2D"]
+offset_left = 774.0
+offset_top = 268.0
+offset_right = 1304.0
+offset_bottom = 739.0
+scale = Vector2(0.3297, 0.322577)
+texture_normal = ExtResource("5_dtxrw")
+texture_pressed = ExtResource("6_sa7gq")
+script = ExtResource("7_0yba6")
+
+[node name="stopBtn" type="TextureButton" parent="Node2D"]
+offset_left = 921.0
+offset_top = 255.0
+offset_right = 1549.0
+offset_bottom = 844.0
+scale = Vector2(0.3768, 0.35811)
+texture_normal = ExtResource("7_03p6j")
+texture_pressed = ExtResource("8_0yba6")
+script = ExtResource("10_u5bqm")
+
 [connection signal="timeout" from="Node2D/timer1" to="Node2D/timer1" method="_on_timeout"]
 [connection signal="text_changed" from="Node2D/enterTime" to="Node2D/timer1" method="_on_enter_time_text_changed"]
+[connection signal="pressed" from="Node2D/goBtn" to="Node2D/timer1" method="_on_go_btn_pressed"]
+[connection signal="pressed" from="Node2D/stopBtn" to="Node2D/timer1" method="_on_stop_btn_pressed"]

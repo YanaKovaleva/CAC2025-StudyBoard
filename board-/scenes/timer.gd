@@ -21,3 +21,11 @@ func _on_timeout() -> void:
 func _on_enter_time_text_changed(new_text: String) -> void:
 	paused = true;
 	wait_time = float(new_text);
+
+
+func _on_go_btn_pressed() -> void:
+	paused = false;
+
+
+func _on_stop_btn_pressed() -> void:
+	paused = true;
