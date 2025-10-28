@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cqpyuppb83vie"]
+[gd_scene load_steps=16 format=3 uid="uid://cqpyuppb83vie"]
 
 [ext_resource type="Texture2D" uid="uid://dhc8a7t27lx2w" path="res://images/timer1.jpeg" id="1_bi5oq"]
 [ext_resource type="Script" uid="uid://crqo1v5fbtp17" path="res://scenes/timer.gd" id="1_g5y8c"]
@@ -6,9 +6,11 @@
 [ext_resource type="Script" uid="uid://ydjkjdh2jgbw" path="res://scenes/enter_time.gd" id="3_uktcg"]
 [ext_resource type="Texture2D" uid="uid://c53priq1k4end" path="res://images/enterTextBg.png" id="4_0yba6"]
 [ext_resource type="Texture2D" uid="uid://hw5pc7birjj1" path="res://images/go.png" id="5_dtxrw"]
+[ext_resource type="Script" uid="uid://fyn32t28iugv" path="res://scripts/good_job.gd" id="6_rva15"]
 [ext_resource type="Texture2D" uid="uid://2cpe67apb6rn" path="res://images/goPressed.png" id="6_sa7gq"]
 [ext_resource type="Script" uid="uid://dxs0ie6hch2jm" path="res://scripts/go_btn.gd" id="7_0yba6"]
 [ext_resource type="Texture2D" uid="uid://ddg0vn7dpyj23" path="res://images/pause.png" id="7_03p6j"]
+[ext_resource type="Script" uid="uid://do12w5qto6y8n" path="res://scripts/confetti.gd" id="7_251mu"]
 [ext_resource type="Texture2D" uid="uid://b0ja5bx4sgm30" path="res://images/stopPressed.png" id="8_0yba6"]
 [ext_resource type="Script" uid="uid://t2ict2dtlfd1" path="res://scripts/stop_btn.gd" id="10_u5bqm"]
 
@@ -92,8 +94,10 @@ offset_left = 389.0
 offset_top = 157.0
 offset_right = 718.0
 offset_bottom = 227.0
+script = ExtResource("6_rva15")
 
 [node name="confetti" type="AnimatedSprite2D" parent="Node2D"]
+script = ExtResource("7_251mu")
 
 [node name="goBtn" type="TextureButton" parent="Node2D"]
 offset_left = 774.0
@@ -116,6 +120,8 @@ texture_pressed = ExtResource("8_0yba6")
 script = ExtResource("10_u5bqm")
 
 [connection signal="timeout" from="Node2D/timer1" to="Node2D/timer1" method="_on_timeout"]
+[connection signal="timeout" from="Node2D/timer1" to="Node2D/goodJob" method="_on_timer_1_timeout"]
+[connection signal="timeout" from="Node2D/timer1" to="Node2D/confetti" method="_on_timer_1_timeout"]
 [connection signal="text_changed" from="Node2D/enterTime" to="Node2D/timer1" method="_on_enter_time_text_changed"]
 [connection signal="text_submitted" from="Node2D/enterTime" to="Node2D/timer1" method="_on_enter_time_text_submitted"]
 [connection signal="text_submitted" from="Node2D/enterTime" to="Node2D/timer1/timerLabel" method="_on_enter_time_text_submitted"]

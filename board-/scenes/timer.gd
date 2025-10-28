@@ -4,9 +4,8 @@ extends Timer
 @onready var enterTime = $/root/timer/Node2D/enterTime
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	wait_time = 60.0;
-	#one_shot = true;
-	autostart = true;
+	wait_time = 0.01;
+	autostart = false;
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

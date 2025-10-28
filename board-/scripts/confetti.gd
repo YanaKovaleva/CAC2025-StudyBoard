@@ -1,4 +1,4 @@
-extends LineEdit
+extends AnimatedSprite2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,5 +11,5 @@ func _process(_delta: float) -> void:
 	pass
 
 
-func _on_text_submitted(_new_text: String) -> void:
-	clear();
+func _on_timer_1_timeout() -> void:
+	visible = true;
