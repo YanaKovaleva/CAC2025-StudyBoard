@@ -1,11 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://bq3cvdb311dwe"]
+[gd_scene load_steps=13 format=3 uid="uid://bq3cvdb311dwe"]
 
 [ext_resource type="Texture2D" uid="uid://wvnl8chm2myd" path="res://images/pencilcase.png" id="1_dun80"]
 [ext_resource type="Texture2D" uid="uid://dlgpkmwio6yhe" path="res://images/sticky.png" id="2_c3r7o"]
 [ext_resource type="PackedScene" uid="uid://egwgip3myb4o" path="res://star.tscn" id="2_dun80"]
+[ext_resource type="Script" uid="uid://cq06me8doahfo" path="res://scripts/bag.gd" id="2_pnb36"]
 [ext_resource type="Texture2D" uid="uid://bfvf7m6y7vjbp" path="res://images/pink.png" id="3_wmvsh"]
 [ext_resource type="Texture2D" uid="uid://chwibkd8dry6e" path="res://images/exclamation.png" id="5_ar2e0"]
+[ext_resource type="Script" uid="uid://dtwyv8r5bsg4w" path="res://scripts/check.gd" id="5_wmvsh"]
 [ext_resource type="Texture2D" uid="uid://7rke5xhgoxn3" path="res://images/check.png" id="6_pnb36"]
+[ext_resource type="Script" uid="uid://x6bmf0bnxtg2" path="res://scripts/excl.gd" id="7_mvl7x"]
+[ext_resource type="Script" uid="uid://nuphx1uuetp1" path="res://scripts/square.gd" id="9_mwcd8"]
+[ext_resource type="Script" uid="uid://cuc62blh0iki0" path="res://scripts/circle.gd" id="11_74c1j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnb36"]
+size = Vector2(433.333, 383.333)
 
 [node name="board" type="Node"]
 
@@ -29,38 +37,84 @@ color = Color(0.752941, 0.647059, 0.529412, 1)
 position = Vector2(589.851, 566.721)
 scale = Vector2(1.24357, 0.869978)
 texture = ExtResource("1_dun80")
+script = ExtResource("2_pnb36")
 
 [node name="star" parent="Node2D" instance=ExtResource("2_dun80")]
 position = Vector2(253.851, 583.721)
+
+[node name="starArea" type="Area2D" parent="Node2D/star"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/star/starArea"]
+polygon = PackedVector2Array(-27.5904, -23.0435, -87.3306, -47.043, -24.0763, -156.755, 35.6639, -36.7574, 123.517, -12.7581, 70.8051, 55.8119, 63.7769, 182.666, -27.5904, 107.239, -115.444, 182.666, -133.014, 55.8119, -210.325, 0.955933, -206.811, -33.329, -97.8729, -16.1865, -90.8447, -43.6144)
 
 [node name="check" type="Sprite2D" parent="Node2D"]
 position = Vector2(343.851, 587.721)
 scale = Vector2(0.3, 0.309)
 texture = ExtResource("6_pnb36")
+script = ExtResource("5_wmvsh")
+
+[node name="checkArea" type="Area2D" parent="Node2D/check"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/check/checkArea"]
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(-156.171, -57.3501, -46.1709, 26.7924, 67.1624, -170.619, 100.496, -170.619, 100.496, -67.0588, -12.8376, 136.825, -152.838, 33.2648, -186.171, 0.902344)
 
 [node name="excl" type="Sprite2D" parent="Node2D"]
 position = Vector2(434.851, 569.721)
 scale = Vector2(0.2, 0.283)
 texture = ExtResource("5_ar2e0")
+script = ExtResource("7_mvl7x")
+
+[node name="exclArea" type="Area2D" parent="Node2D/excl"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/excl/exclArea"]
+polygon = PackedVector2Array(-114.256, -207.495, -139.256, 11.5859, -34.2563, 82.2573, -104.256, 149.395, -79.2563, 205.932, 15.7437, 230.667, 70.7437, 170.596, 50.7437, 92.8579, 105.744, -13.149, 110.744, -172.16, 55.7437, -246.365)
 
 [node name="square" type="Sprite2D" parent="Node2D"]
 position = Vector2(559.851, 578.721)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_c3r7o")
+script = ExtResource("9_mwcd8")
 
 [node name="TextEdit" type="TextEdit" parent="Node2D/square"]
 offset_right = 8.0
 offset_bottom = 8.0
 metadata/_edit_use_anchors_ = true
 
+[node name="squareArea" type="Area2D" parent="Node2D/square"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/square/squareArea"]
+position = Vector2(20.4956, 12.5961)
+shape = SubResource("RectangleShape2D_pnb36")
+
 [node name="circle" type="Sprite2D" parent="Node2D"]
 position = Vector2(783.851, 582.721)
 scale = Vector2(0.4, 0.442)
 texture = ExtResource("3_wmvsh")
+script = ExtResource("11_74c1j")
 
 [node name="TextEdit" type="TextEdit" parent="Node2D/circle"]
 offset_right = 8.0
 offset_bottom = 8.0
 metadata/_edit_use_anchors_ = true
+
+[node name="circleArea" type="Area2D" parent="Node2D/circle"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/circle/circleArea"]
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(-262.128, -53.6678, -214.628, -114.754, -117.128, -150.953, 27.8719, -160.003, 202.872, -130.591, 255.372, -141.903, 272.872, -117.016, 282.872, -76.2922, 320.372, -28.781, 297.872, 50.4045, 207.872, 109.228, 97.8719, 134.115, -122.128, 129.59, -234.628, 91.1285, -292.128, 9.68054)
+
+[connection signal="body_entered" from="Node2D/star/starArea" to="Node2D/star" method="_on_star_area_body_entered"]
+[connection signal="body_exited" from="Node2D/star/starArea" to="Node2D/star" method="_on_star_area_body_exited"]
+[connection signal="mouse_entered" from="Node2D/star/starArea" to="Node2D/star" method="_on_star_area_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D/star/starArea" to="Node2D/star" method="_on_star_area_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D/check/checkArea" to="Node2D/check" method="_on_check_area_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D/check/checkArea" to="Node2D/check" method="_on_check_area_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D/excl/exclArea" to="Node2D/excl" method="_on_excl_area_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D/excl/exclArea" to="Node2D/excl" method="_on_excl_area_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D/square/squareArea" to="Node2D/square" method="_on_square_area_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D/square/squareArea" to="Node2D/square" method="_on_square_area_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D/circle/circleArea" to="Node2D/circle" method="_on_circle_area_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D/circle/circleArea" to="Node2D/circle" method="_on_circle_area_mouse_exited"]
 
 [editable path="Node2D/star"]
