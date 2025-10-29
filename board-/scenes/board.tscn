@@ -1,15 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://bq3cvdb311dwe"]
+[gd_scene load_steps=9 format=3 uid="uid://bq3cvdb311dwe"]
 
 [ext_resource type="Texture2D" uid="uid://wvnl8chm2myd" path="res://images/pencilcase.png" id="1_dun80"]
+[ext_resource type="Script" uid="uid://bs6n1dhs5i3bc" path="res://scenes/node_2d.gd" id="1_wmvsh"]
 [ext_resource type="Texture2D" uid="uid://dlgpkmwio6yhe" path="res://images/sticky.png" id="2_c3r7o"]
 [ext_resource type="Texture2D" uid="uid://bfvf7m6y7vjbp" path="res://images/pink.png" id="3_wmvsh"]
 [ext_resource type="Texture2D" uid="uid://cbs1snffbo0q8" path="res://images/star (2).png" id="4_n230i"]
 [ext_resource type="Texture2D" uid="uid://chwibkd8dry6e" path="res://images/exclamation.png" id="5_ar2e0"]
+[ext_resource type="Script" uid="uid://dtwyv8r5bsg4w" path="res://scripts/check.gd" id="5_wmvsh"]
 [ext_resource type="Texture2D" uid="uid://7rke5xhgoxn3" path="res://images/check.png" id="6_pnb36"]
 
 [node name="board" type="Node"]
 
 [node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("1_wmvsh")
 
 [node name="boardBg" type="ColorRect" parent="Node2D"]
 offset_right = 40.0
@@ -30,6 +33,22 @@ position = Vector2(589.851, 566.721)
 scale = Vector2(1.24357, 0.869978)
 texture = ExtResource("1_dun80")
 
+[node name="star" type="Sprite2D" parent="Node2D"]
+position = Vector2(242, 576)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_n230i")
+
+[node name="check" type="Sprite2D" parent="Node2D"]
+position = Vector2(343.851, 587.721)
+scale = Vector2(0.3, 0.309)
+texture = ExtResource("6_pnb36")
+script = ExtResource("5_wmvsh")
+
+[node name="excl" type="Sprite2D" parent="Node2D"]
+position = Vector2(434.851, 569.721)
+scale = Vector2(0.2, 0.283)
+texture = ExtResource("5_ar2e0")
+
 [node name="square" type="Sprite2D" parent="Node2D"]
 position = Vector2(559.851, 578.721)
 scale = Vector2(0.3, 0.3)
@@ -49,18 +68,3 @@ texture = ExtResource("3_wmvsh")
 offset_right = 8.0
 offset_bottom = 8.0
 metadata/_edit_use_anchors_ = true
-
-[node name="star" type="Sprite2D" parent="Node2D"]
-position = Vector2(253.851, 583.721)
-scale = Vector2(0.2, 0.197)
-texture = ExtResource("4_n230i")
-
-[node name="excl" type="Sprite2D" parent="Node2D"]
-position = Vector2(434.851, 569.721)
-scale = Vector2(0.2, 0.283)
-texture = ExtResource("5_ar2e0")
-
-[node name="check" type="Sprite2D" parent="Node2D"]
-position = Vector2(343.851, 587.721)
-scale = Vector2(0.3, 0.309)
-texture = ExtResource("6_pnb36")
